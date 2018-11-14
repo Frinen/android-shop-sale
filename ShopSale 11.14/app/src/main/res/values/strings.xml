@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ShopSale</string>
+    <string name="Name1">Acer Aspire 3 A315-53G (NX.H18EU.031) Obsidian Black</string>
+    <string name="Name2">Samsung Galaxy A5 2017 Duos SM-A520 Black</string>
+    <string name="Name3">Canon EOS 77D Body Black (1892C020AA)</string>
+    <string name="Description1">Екран 15.6\" (1920x1080) Full HD, матовий / Intel Core i5-7200U (2.5 - 3.1 ГГц) / RAM 8 ГБ / SSD 256 ГБ / nVidia GeForce MX130, 2 ГБ / без ОД / LAN / Wi-Fi / Bluetooth / веб-камера / Linux / 2.1 кг / чорний</string>
+    <string name="Description2">Екран (5.2\", Super AMOLED, 1920x1080)/ Samsung Exynos 7880 (1.9 ГГц)/ основна камера: 16 Мп, фронтальна камера: 16 Мп/ RAM 3 ГБ/ 32 ГБ вбудованої пам\'яті + microSD/SDHC (до 256 ГБ)/ 3G/ LTE/ GPS/ ГЛОНАСС/ підтримка 2-х SIM-карток (Nano-SIM)/ Android 6.0 (Marshmallow)/ 3000 мА·год</string>
+    <string name="Description3">Матриця CMOS 22.3 x 14.9 мм, 24.2 Мп / підтримка карт пам\'яті SD / SDHC / SDXC / LCD-дисплей 3\" / Full HD-відео / Wi-Fi / живлення від літій-іонного акумулятора / 131 x 76.2 x 99.9 мм, 540 г (з об\'єктивом)</string>
+    <string name="OldPrice1">19 799 грн</string>
+    <string name="OldPrice2">7 499 грн</string>
+    <string name="OldPrice3">24 999 грн</string>
+    <string name="NewPrice1">17 499 грн</string>
+    <string name="NewPrice2">6 999 грн</string>
+    <string name="NewPrice3">22 699 грн</string>
+</resources>
