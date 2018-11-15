@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="1"
-        android:text="@string/Name3" />
+        android:text="@string/Name3"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/descriptionView"
@@ -26,7 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="2"
-        android:text="@string/Description3" />
+        android:text="@string/Description3"
+        android:textColor="#1d1d1d" />
 
     <TextView
         android:id="@+id/oldPriceView"
@@ -34,7 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="3"
-        android:text="@string/OldPrice3" />
+        android:text="@string/OldPrice3"
+        android:textColor="#fa2929"
+        android:textSize="10sp" />
 
     <TextView
         android:id="@+id/newPriceView"
@@ -42,5 +46,17 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="4"
-        android:text="@string/NewPrice3" />
+        android:text="@string/NewPrice3"
+        android:textColor="#00c700"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"
+        android:layout_row="5"
+        android:onClick="back"
+        android:text="Назад" />
 </GridLayout>

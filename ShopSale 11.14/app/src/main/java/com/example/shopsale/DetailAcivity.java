@@ -1,9 +1,14 @@
 package com.example.shopsale;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class DetailAcivity extends AppCompatActivity {
 
@@ -12,6 +17,7 @@ public class DetailAcivity extends AppCompatActivity {
     TextView oldPriceView;
     TextView newPriceView;
     ImageView img;
+    ArrayList<ListItem> selectedItems = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,14 @@ public class DetailAcivity extends AppCompatActivity {
         oldPriceView.setText(arguments.get("OldPrice").toString());
         newPriceView.setText(arguments.get("NewPrice").toString());
 
+        try {
+            selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
+        }
+        catch (Exception ex)
+        {
+
+        }
+
         String picName = arguments.get("Picture").toString();
         if(picName.equals("1"))
         {
@@ -44,5 +58,11 @@ public class DetailAcivity extends AppCompatActivity {
         }
     }
 
+    public void back(View view) {
+        Intent intent = new Intent();
+        intent.putExtra("List",(Serializable) selectedItems);
+        setResult(RESULT_OK, intent);
+        finish();
     }
+}
 

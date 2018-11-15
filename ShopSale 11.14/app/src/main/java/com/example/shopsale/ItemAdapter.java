@@ -38,7 +38,7 @@ public class ItemAdapter extends ArrayAdapter<ListItem> {
         _context = inflater.getContext();
 
 
-
+        TextView price = (TextView) view.findViewById(R.id.priceView);
         TextView name = (TextView) view.findViewById(R.id.nameView);
         final TextView count = (TextView) view.findViewById(R.id.countView);
 
@@ -63,7 +63,7 @@ public class ItemAdapter extends ArrayAdapter<ListItem> {
         });
         name.setText(state.name);
         count.setText(Integer.toString(state.count));
-
+        price.setText(Integer.toString(state.price));
         return view;
     }
 }
