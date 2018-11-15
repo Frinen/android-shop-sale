@@ -48,15 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void ToCart(View view) {
-        Bundle arguments = getIntent().getExtras();
-        try {
-            selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
-
-        }
-        catch (Exception ex) {
-
-        }
-            Intent intent = new Intent(this, CartActivity.class);
+        Intent intent = new Intent(this, CartActivity.class);
         intent.putExtra("List",(Serializable) selectedItems);
         startActivity(intent);
     }

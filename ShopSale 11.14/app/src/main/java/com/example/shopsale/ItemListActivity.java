@@ -41,15 +41,15 @@ public class ItemListActivity extends AppCompatActivity {
             selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
             for(int i =0 ; i<selectedItems.size(); i++ )
                   {
-                      if(selectedItems.get(i).name.equals("Notebook"))
+                      if(selectedItems.get(i).name.equals("Acer Aspire 3 A315-53G"))
                       {
                           item1.setChecked(true);
                       }
-                      if(selectedItems.get(i).name.equals("Phone"))
+                      if(selectedItems.get(i).name.equals("Samsung Galaxy A5 2017"))
                       {
                           item2.setChecked(true);
                       }
-                      if(selectedItems.get(i).name.equals("Camera"))
+                      if(selectedItems.get(i).name.equals("Canon EOS 77D"))
                       {
                           item3.setChecked(true);
                       }
@@ -122,15 +122,15 @@ public class ItemListActivity extends AppCompatActivity {
         selectedItems = new ArrayList<>();
         if(item1.isChecked())
         {
-            selectedItems.add(new ListItem("Notebook", 1, 17499));
+            selectedItems.add(new ListItem("Acer Aspire 3 A315-53G", 1, 17499));
         }
         if(item2.isChecked())
         {
-            selectedItems.add(new ListItem("Phone", 1, 6999));
+            selectedItems.add(new ListItem("Samsung Galaxy A5 2017", 1, 6999));
         }
         if(item3.isChecked())
         {
-            selectedItems.add(new ListItem("Camera", 1, 6999));
+            selectedItems.add(new ListItem("Canon EOS 77D", 1, 6999));
         }
                 //intent.removeExtra("List");
         intent.putExtra("List",selectedItems);
