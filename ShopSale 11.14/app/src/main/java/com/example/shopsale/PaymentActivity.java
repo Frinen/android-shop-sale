@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class PaymentActivity extends AppCompatActivity {
@@ -23,8 +24,6 @@ public class PaymentActivity extends AppCompatActivity {
 
         try {
             selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
-            //  tv.setText(selectedItems.toString());
-            // items.add(new ListItem("test",1));
 
 
         }
@@ -51,13 +50,13 @@ public class PaymentActivity extends AppCompatActivity {
 
     public void toMenue(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("List",selectedItems);
+        intent.putExtra("List" , (Serializable)selectedItems);
         startActivity(intent);
     }
 
     public void ToCart(View view) {
         Intent intent = new Intent(this, CartActivity.class);
-        intent.putExtra("List",selectedItems);
+        intent.putExtra("List", (Serializable) selectedItems);
         startActivity(intent);
     }
 }

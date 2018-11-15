@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,22 +98,21 @@ public class ItemListActivity extends AppCompatActivity {
     }
 
     public void ToMenue(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-
+        selectedItems = new ArrayList<>();
         if(item1.isChecked())
         {
-            selectedItems.add(new ListItem("Notebook", 1, 17499));
+            selectedItems.add(new ListItem("Acer Aspire 3 A315-53G", 1, 17499));
         }
         if(item2.isChecked())
         {
-            selectedItems.add(new ListItem("Phone", 1, 6999));
+            selectedItems.add(new ListItem("Samsung Galaxy A5 2017", 1, 6999));
         }
         if(item3.isChecked())
         {
-            selectedItems.add(new ListItem("Camera", 1, 6999));
+            selectedItems.add(new ListItem("Canon EOS 77D", 1, 6999));
         }
-        intent.putExtra("List",selectedItems.toArray());
-        Toast.makeText(this, selectedItems.toString(), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("List" , (Serializable)selectedItems);
         startActivity(intent);
     }
 

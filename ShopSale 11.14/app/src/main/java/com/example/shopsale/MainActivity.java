@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<ListItem> selectedItems = new ArrayList<>();
+    ArrayList<ListItem> selectedItems = new ArrayList();
     TextView tv;
 
     @Override
