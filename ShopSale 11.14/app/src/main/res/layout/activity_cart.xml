@@ -4,26 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="5dp"
     tools:context=".CartActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_column="0"
+        android:layout_columnSpan="1"
+        android:layout_row="0"
+        app:srcCompat="@drawable/xtrade_logo_mini" />
 
     <Button
         android:id="@+id/ToItemList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
         android:layout_column="0"
-        android:layout_row="1"
+        android:layout_margin="5dp"
+        android:layout_row="2"
+        android:background="@drawable/button_state"
         android:onClick="ToItemList"
-        android:text="ToItemList" />
+        android:text="До спску товарів" />
 
     <Button
         android:id="@+id/toPayment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
         android:layout_gravity="right"
-        android:layout_row="1"
+        android:layout_margin="5dp"
+        android:layout_row="2"
+        android:background="@drawable/button_state"
         android:onClick="toPayment"
-        android:text="ToPayment" />
+        android:text="До оплати" />
 
     <ListView
         android:id="@+id/itemList"
@@ -31,5 +46,16 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:layout_row="0" />
+        android:layout_row="1" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_gravity="center"
+        android:layout_row="0"
+        android:text="Кошик"
+        android:textSize="24sp" />
 </GridLayout>

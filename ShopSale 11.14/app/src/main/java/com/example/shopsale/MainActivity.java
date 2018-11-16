@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Bundle arguments = getIntent().getExtras();
-        tv = (TextView) findViewById(R.id.arrayView);
         try {
             selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
             tv.setText(selectedItems.toString());

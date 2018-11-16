@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,6 +17,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     ArrayList<ListItem> selectedItems = new ArrayList();
     ListView paymentList;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,9 @@ public class PaymentActivity extends AppCompatActivity {
                 sum += item.count*item.price;
             }
             TextView tv = (TextView) findViewById(R.id.allPrice);
-            tv.setText(Integer.toString(sum));
+            tv.setText("Сума покупок: "+Integer.toString(sum));
         }
+        btn = (Button) findViewById(R.id.button4);
     }
 
     public void toMenue(View view) {
@@ -58,5 +63,17 @@ public class PaymentActivity extends AppCompatActivity {
         Intent intent = new Intent(this, CartActivity.class);
         intent.putExtra("List", (Serializable) selectedItems);
         startActivity(intent);
+    }
+
+    public void agree(View view) {
+        if (((CheckBox) view).isChecked()) {
+            btn.setEnabled(true);
+        } else {
+            btn.setEnabled(false);
+        }
+    }
+
+    public void buy(View view) {
+        Toast.makeText(this, "Замовлення оформлено!", Toast.LENGTH_SHORT).show();
     }
 }

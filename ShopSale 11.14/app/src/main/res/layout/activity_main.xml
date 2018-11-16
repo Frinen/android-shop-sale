@@ -49,9 +49,4 @@
         android:text="Оформити покупку"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/arrayView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 </LinearLayout>
