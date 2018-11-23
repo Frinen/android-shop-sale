@@ -43,35 +43,35 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         switch(id){
             case R.id.action_list :
+            {
+                Bundle arguments = getIntent().getExtras();
+                try {
+                    selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
+
+                }
+                catch (Exception ex)
                 {
-                    Bundle arguments = getIntent().getExtras();
-                    try {
-                        selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
 
-                    }
-                    catch (Exception ex)
-                    {
-
-                    }
-                    Intent intent = new Intent(this, ItemListActivity.class);
-                    intent.putExtra("List",(Serializable) selectedItems);
-                    startActivity(intent);
+                }
+                Intent intent = new Intent(this, ItemListActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
                 return true;
-                }
+            }
             case R.id.action_cart:
-                {
-                    Intent intent = new Intent(this, CartActivity.class);
-                    intent.putExtra("List",(Serializable) selectedItems);
-                    startActivity(intent);
-                    return true;
-                }
+            {
+                Intent intent = new Intent(this, CartActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
             case R.id.action_payment:
-                {
-                    Intent intent = new Intent(this, PaymentActivity.class);
-                    intent.putExtra("List",(Serializable) selectedItems);
-                    startActivity(intent);
-                    return true;
-                }
+            {
+                Intent intent = new Intent(this, PaymentActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }

@@ -50,6 +50,14 @@
             android:layout_weight="1"
             android:background="@drawable/button_state_right_arrow"
             android:gravity="right" />
+
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_delete_state" />
     </LinearLayout>
 
     <TextView

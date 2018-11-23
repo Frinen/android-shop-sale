@@ -25,11 +25,10 @@ public class ItemAdapter extends ArrayAdapter<ListItem> {
         super(context, resource, states);
         this.items = states;
         this.layout = resource;
-
         this.inflater = LayoutInflater.from(context);
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
 
 
@@ -43,6 +42,14 @@ public class ItemAdapter extends ArrayAdapter<ListItem> {
         final TextView count = (TextView) view.findViewById(R.id.countView);
 
         final ListItem state = items.get(position);
+
+        Button deleteButton = (Button) view.findViewById(R.id.delete);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                items.remove(position);
+                notifyDataSetChanged();
+            }
+        });
 
         Button lessButton = (Button) view.findViewById(R.id.lessButton);
         lessButton.setOnClickListener(new View.OnClickListener() {

@@ -3,6 +3,8 @@ package com.example.shopsale;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -76,4 +78,50 @@ public class PaymentActivity extends AppCompatActivity {
     public void buy(View view) {
         Toast.makeText(this, "Замовлення оформлено!", Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main_menue, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch(id){
+            case R.id.action_list :
+            {
+                Bundle arguments = getIntent().getExtras();
+                try {
+                    selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+                Intent intent = new Intent(this, ItemListActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.action_cart:
+            {
+                Intent intent = new Intent(this, CartActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
+            case R.id.action_payment:
+            {
+                Intent intent = new Intent(this, PaymentActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }
