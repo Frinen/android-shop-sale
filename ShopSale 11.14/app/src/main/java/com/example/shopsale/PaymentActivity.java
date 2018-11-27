@@ -27,10 +27,10 @@ public class PaymentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_payment);
 
         Bundle arguments = getIntent().getExtras();
-
+        int shipping = 30;
         try {
             selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
-
+            shipping = (int) arguments.get("Shipping");
 
         }
         catch (Exception ex)
@@ -49,9 +49,12 @@ public class PaymentActivity extends AppCompatActivity {
             {
                 sum += item.count*item.price;
             }
+            sum+=shipping;
             TextView tv = (TextView) findViewById(R.id.allPrice);
             tv.setText("Сума покупок: "+Integer.toString(sum));
         }
+        TextView shippingView = (TextView) findViewById(R.id.shippingView);
+        shippingView.setText("Доставка: "+Integer.toString(shipping));
         btn = (Button) findViewById(R.id.button4);
     }
 
@@ -76,13 +79,20 @@ public class PaymentActivity extends AppCompatActivity {
     }
 
     public void buy(View view) {
-        Toast.makeText(this, "Замовлення оформлено!", Toast.LENGTH_SHORT).show();
+        CheckBox call = (CheckBox) findViewById(R.id.callCheck);
+        if(call.isChecked())
+        {
+            Toast.makeText(this, "Замовлення оформлено! Ми вам передзвонимо.", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(this, "Замовлення оформлено!", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_menue, menu);
+        getMenuInflater().inflate(R.menu.item_mene, menu);
         return true;
     }
 
@@ -90,6 +100,13 @@ public class PaymentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(id){
+            case R.id.action_mian:
+            {
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
             case R.id.action_list :
             {
                 Bundle arguments = getIntent().getExtras();

@@ -67,7 +67,7 @@ public class ItemListActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_menue, menu);
+        getMenuInflater().inflate(R.menu.item_mene, menu);
         return true;
     }
 
@@ -75,6 +75,13 @@ public class ItemListActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(id){
+            case R.id.action_mian:
+            {
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
             case R.id.action_list :
             {
                 Bundle arguments = getIntent().getExtras();
@@ -108,7 +115,6 @@ public class ItemListActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
     public void Details3(View view)
     {

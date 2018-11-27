@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -52,6 +53,20 @@ public class CartActivity extends AppCompatActivity {
     public void toPayment(View view) {
         Intent intent = new Intent(this,  PaymentActivity.class);
         intent.putExtra("List",selectedItems);
+
+        int shipping = 0;
+        RadioButton ukr = (RadioButton)  findViewById(R.id.UkrRadio);
+        if(ukr.isChecked())
+        {
+            shipping = 30;
+        }
+        RadioButton nova = (RadioButton)  findViewById(R.id.NewRadio);
+        if(nova.isChecked())
+        {
+            shipping = 60;
+        }
+        intent.putExtra("Shipping", shipping);
+
         startActivity(intent);
 
     }
@@ -59,7 +74,7 @@ public class CartActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.main_menue, menu);
+        getMenuInflater().inflate(R.menu.item_mene, menu);
         return true;
     }
 
@@ -67,6 +82,13 @@ public class CartActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch(id){
+            case R.id.action_mian:
+            {
+                Intent intent = new Intent(this, MainActivity.class);
+                intent.putExtra("List",(Serializable) selectedItems);
+                startActivity(intent);
+                return true;
+            }
             case R.id.action_list :
             {
                 Bundle arguments = getIntent().getExtras();

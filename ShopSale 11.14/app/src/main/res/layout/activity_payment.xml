@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_gravity="right"
-        android:layout_row="1"
+        android:layout_row="3"
         android:text="TextView" />
 
     <Button
@@ -22,7 +22,8 @@
         android:layout_height="40dp"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:layout_row="2"
+        android:layout_margin="5dp"
+        android:layout_row="4"
         android:background="@drawable/button_state"
         android:onClick="ToCart"
         android:text="У кошик" />
@@ -31,10 +32,11 @@
         android:id="@+id/toMenue"
         android:layout_width="100dp"
         android:layout_height="40dp"
-        android:layout_column="0"
+        android:layout_column="1"
         android:layout_columnSpan="2"
         android:layout_gravity="right"
-        android:layout_row="2"
+        android:layout_margin="5dp"
+        android:layout_row="4"
         android:background="@drawable/button_state"
         android:onClick="toMenue"
         android:text="В меню" />
@@ -45,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:layout_row="0" />
+        android:layout_row="1" />
 
     <TextView
         android:id="@+id/textView"
@@ -54,15 +56,16 @@
         android:layout_column="0"
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
-        android:layout_row="3"
-        android:text="Оформлення замовлення" />
+        android:layout_row="0"
+        android:text="Оформлення замовлення"
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
-        android:layout_row="4"
+        android:layout_row="5"
         android:text="Прізвище" />
 
     <TextView
@@ -70,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
-        android:layout_row="5"
+        android:layout_row="6"
         android:text="Ім'я" />
 
     <TextView
@@ -78,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
-        android:layout_row="6"
+        android:layout_row="7"
         android:text="По-батькові" />
 
     <EditText
@@ -86,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_column="1"
-        android:layout_row="4"
+        android:layout_row="5"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -95,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_column="1"
-        android:layout_row="5"
+        android:layout_row="6"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -104,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_column="1"
-        android:layout_row="6"
+        android:layout_row="7"
         android:ems="10"
         android:inputType="textPersonName" />
 
@@ -114,7 +117,7 @@
         android:layout_height="40dp"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:layout_row="7"
+        android:layout_row="8"
         android:onClick="agree"
         android:text="Я згідний з обробкою персональних данних"
         android:textSize="12sp" />
@@ -126,9 +129,33 @@
         android:layout_column="0"
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
-        android:layout_row="8"
+        android:layout_row="10"
         android:background="@drawable/button_state"
         android:enabled="false"
         android:onClick="buy"
         android:text="Купити!" />
+
+    <TextView
+        android:id="@+id/shippingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="2"
+        android:text="TextView" />
+
+    <CheckBox
+        android:id="@+id/callCheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="9"
+        android:text="Передзвоніть мені" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_column="0"
+        android:layout_row="0"
+        app:srcCompat="@drawable/xtrade_logo_mini" />
 </GridLayout>
