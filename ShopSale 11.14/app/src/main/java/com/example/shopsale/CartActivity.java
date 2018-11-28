@@ -18,12 +18,13 @@ public class CartActivity extends AppCompatActivity {
     ArrayList<ListItem> selectedItems = new ArrayList();
     ListView itemsList;
     TextView tv;
+    TextView notSelectedView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
         Bundle arguments = getIntent().getExtras();
-
+        notSelectedView = (TextView) findViewById(R.id.notSelectedView);
         try {
             selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
           //  tv.setText(selectedItems.toString());
@@ -35,12 +36,16 @@ public class CartActivity extends AppCompatActivity {
         {
 
         }
-        if(selectedItems!=null) {
+        if(selectedItems.size()>0) {
             itemsList = (ListView) findViewById(R.id.itemList);
             // создаем адаптер
             ItemAdapter adapter = new ItemAdapter(this, R.layout.list_item, selectedItems);
             // устанавливаем адаптер
             itemsList.setAdapter(adapter);
+        }
+        else
+        {
+            notSelectedView.setText("Товар не вибрано");
         }
     }
 

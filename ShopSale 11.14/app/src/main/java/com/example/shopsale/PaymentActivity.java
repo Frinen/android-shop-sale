@@ -20,12 +20,12 @@ public class PaymentActivity extends AppCompatActivity {
     ArrayList<ListItem> selectedItems = new ArrayList();
     ListView paymentList;
     Button btn;
-
+    TextView tv;
+    TextView shippingView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
-
         Bundle arguments = getIntent().getExtras();
         int shipping = 30;
         try {
@@ -42,6 +42,9 @@ public class PaymentActivity extends AppCompatActivity {
         PaymentAdapter adapter = new PaymentAdapter(this, R.layout.payment_item, selectedItems);
         // устанавливаем адаптер
         paymentList.setAdapter(adapter);
+        tv = (TextView) findViewById(R.id.allPrice);
+        shippingView = (TextView) findViewById(R.id.shippingView);
+        btn = (Button) findViewById(R.id.button4);
         if(selectedItems.size()>0)
         {
             int sum=0;
@@ -50,12 +53,19 @@ public class PaymentActivity extends AppCompatActivity {
                 sum += item.count*item.price;
             }
             sum+=shipping;
-            TextView tv = (TextView) findViewById(R.id.allPrice);
+
             tv.setText("Сума покупок: "+Integer.toString(sum));
+            shippingView.setText("Доставка: "+Integer.toString(shipping));
         }
-        TextView shippingView = (TextView) findViewById(R.id.shippingView);
-        shippingView.setText("Доставка: "+Integer.toString(shipping));
-        btn = (Button) findViewById(R.id.button4);
+        else
+        {
+            tv.setText("");
+            shippingView.setText("Товар не вибрано");
+            btn.setVisibility(View.INVISIBLE);
+        }
+
+
+
     }
 
     public void toMenue(View view) {
