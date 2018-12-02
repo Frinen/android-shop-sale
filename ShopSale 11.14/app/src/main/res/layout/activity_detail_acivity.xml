@@ -57,8 +57,18 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_gravity="center_horizontal"
-        android:layout_row="5"
+        android:layout_row="6"
         android:background="@drawable/button_state"
         android:onClick="back"
         android:text="Назад" />
+
+    <Button
+        android:id="@+id/toWeb"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_gravity="center_horizontal"
+        android:layout_row="5"
+        android:onClick="webClick"
+        android:text="На сайт" />
 </GridLayout>

@@ -1,6 +1,7 @@
 package com.example.shopsale;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,7 @@ public class DetailAcivity extends AppCompatActivity {
     TextView newPriceView;
     ImageView img;
     ArrayList<ListItem> selectedItems = new ArrayList();
-
+    String picName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class DetailAcivity extends AppCompatActivity {
 
         }
 
-        String picName = arguments.get("Picture").toString();
+        picName = arguments.get("Picture").toString();
         if(picName.equals("1"))
         {
             img.setImageResource( R.drawable.notebook);
@@ -63,6 +64,12 @@ public class DetailAcivity extends AppCompatActivity {
         intent.putExtra("List",(Serializable) selectedItems);
         setResult(RESULT_OK, intent);
         finish();
+    }
+
+    public void webClick(View view) {
+        Intent intent = new Intent(this,WebActivity.class);
+        intent.putExtra("Site", picName);
+        startActivityForResult(intent, 1);
     }
 }
 

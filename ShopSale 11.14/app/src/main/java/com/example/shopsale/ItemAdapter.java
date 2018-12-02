@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,10 +40,12 @@ public class ItemAdapter extends ArrayAdapter<ListItem> {
 
         TextView price = (TextView) view.findViewById(R.id.priceView);
         TextView name = (TextView) view.findViewById(R.id.nameView);
+        ImageView pic = (ImageView) view.findViewById(R.id.listPic);
         final TextView count = (TextView) view.findViewById(R.id.countView);
 
         final ListItem state = items.get(position);
 
+        pic.setImageResource(state.pic);
         Button deleteButton = (Button) view.findViewById(R.id.delete);
         deleteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

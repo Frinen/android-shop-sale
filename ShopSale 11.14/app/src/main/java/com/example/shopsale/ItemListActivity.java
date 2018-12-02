@@ -153,15 +153,15 @@ public class ItemListActivity extends AppCompatActivity {
         selectedItems = new ArrayList<>();
         if(item1.isChecked())
         {
-            selectedItems.add(new ListItem("Acer Aspire 3 A315-53G", 1, 17499));
+            selectedItems.add(new ListItem("Acer Aspire 3 A315-53G", 1, 17499, R.drawable.notebook));
         }
         if(item2.isChecked())
         {
-            selectedItems.add(new ListItem("Samsung Galaxy A5 2017", 1, 6999));
+            selectedItems.add(new ListItem("Samsung Galaxy A5 2017", 1, 6999, R.drawable.smartphone));
         }
         if(item3.isChecked())
         {
-            selectedItems.add(new ListItem("Canon EOS 77D", 1, 6999));
+            selectedItems.add(new ListItem("Canon EOS 77D", 1, 6999, R.drawable.camera));
         }
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("List" , (Serializable)selectedItems);
@@ -174,15 +174,15 @@ public class ItemListActivity extends AppCompatActivity {
         selectedItems = new ArrayList<>();
         if(item1.isChecked())
         {
-            selectedItems.add(new ListItem("Acer Aspire 3 A315-53G", 1, 17499));
+            selectedItems.add(new ListItem("Acer Aspire 3 A315-53G", 1, 17499, R.drawable.notebook));
         }
         if(item2.isChecked())
         {
-            selectedItems.add(new ListItem("Samsung Galaxy A5 2017", 1, 6999));
+            selectedItems.add(new ListItem("Samsung Galaxy A5 2017", 1, 6999, R.drawable.smartphone));
         }
         if(item3.isChecked())
         {
-            selectedItems.add(new ListItem("Canon EOS 77D", 1, 6999));
+            selectedItems.add(new ListItem("Canon EOS 77D", 1, 6999, R.drawable.camera));
         }
                 //intent.removeExtra("List");
         intent.putExtra("List",selectedItems);

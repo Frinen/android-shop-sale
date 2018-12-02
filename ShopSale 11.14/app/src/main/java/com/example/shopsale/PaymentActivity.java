@@ -1,6 +1,12 @@
 package com.example.shopsale;
 
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.BitmapFactory;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,12 +28,14 @@ public class PaymentActivity extends AppCompatActivity {
     Button btn;
     TextView tv;
     TextView shippingView;
+    int sum;
+    int shipping;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
         Bundle arguments = getIntent().getExtras();
-        int shipping = 30;
+        shipping = 30;
         try {
             selectedItems = (ArrayList<ListItem>) arguments.getSerializable("List");
             shipping = (int) arguments.get("Shipping");
@@ -47,7 +55,7 @@ public class PaymentActivity extends AppCompatActivity {
         btn = (Button) findViewById(R.id.button4);
         if(selectedItems.size()>0)
         {
-            int sum=0;
+            sum=0;
             for (ListItem item :selectedItems)
             {
                 sum += item.count*item.price;
@@ -90,6 +98,7 @@ public class PaymentActivity extends AppCompatActivity {
 
     public void buy(View view) {
         CheckBox call = (CheckBox) findViewById(R.id.callCheck);
+        String fullName="";
         if(call.isChecked())
         {
             Toast.makeText(this, "Замовлення оформлено! Ми вам передзвонимо.", Toast.LENGTH_SHORT).show();
@@ -97,6 +106,46 @@ public class PaymentActivity extends AppCompatActivity {
         else {
             Toast.makeText(this, "Замовлення оформлено!", Toast.LENGTH_SHORT).show();
         }
+        try
+        {
+            TextView surname = (TextView) findViewById(R.id.surname);
+            TextView name = (TextView) findViewById(R.id.name);
+            TextView secondname = (TextView) findViewById(R.id.secondName);
+            fullName = surname.getText()+" "+name.getText()+" "+secondname.getText();
+        }
+        catch (Exception ex){}
+        Context context = getApplicationContext();
+
+        Intent notificationIntent = new Intent(context,
+                notification.class);
+
+        notificationIntent.putExtra("List" , (Serializable)selectedItems);
+        notificationIntent.putExtra("AllPrice", sum);
+        notificationIntent.putExtra("Shipping", shipping);
+        notificationIntent.putExtra("Name", fullName);
+        PendingIntent contentIntent =
+                PendingIntent.getActivity(context,0, notificationIntent,
+                        PendingIntent.FLAG_CANCEL_CURRENT);
+        Resources res = context.getResources();
+
+        Notification.Builder builder = new Notification.Builder(context);
+
+        builder.setContentIntent(contentIntent)
+                .setSmallIcon(R.drawable.xtrade_logo_mini)
+                .setContentTitle("Замовлення оформлено")
+                .setTicker("Замовлення оформлено")
+                .setContentText("Загальна сумма: "+Integer.toString(sum)+"грн");
+
+        Notification notification = builder.getNotification();
+
+        NotificationManagerCompat notificationManager =
+                NotificationManagerCompat.from(this);
+
+        notificationManager.notify(101, notification);
+
+
+
+
     }
 
     @Override

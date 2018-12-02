@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.shopsale">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,7 +21,9 @@
         <activity android:name=".ItemListActivity" />
         <activity android:name=".DetailAcivity" />
         <activity android:name=".CartActivity" />
-        <activity android:name=".PaymentActivity"></activity>
+        <activity android:name=".PaymentActivity" />
+        <activity android:name=".WebActivity" />
+        <activity android:name=".notification"></activity>
     </application>
 
 </manifest>
